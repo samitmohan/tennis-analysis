@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# Model Files
+*.pt
+*.pth
+*.weights
+*.h5
+*.pkl
+models/*.pt
+models/*.pth
+
+# Input/Output Data
+input/
+output_videos/
+runs/
+tracker_stubs/
+
+# Machine Learning Artifacts
+*.log
+*.out
+*.json
+
+# IDE and Editor Files
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Miscellaneous
+*.tmp
+*.bak
+*.backup
