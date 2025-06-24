@@ -12,3 +12,4 @@ TODO:
 - Keypoints don't work: keypoints_model (Retrain model Google Collab)
 - Add minicourt
 - Add Player 1 Player 2 Stats
+- Add DeepSort to player amd ball trackers
