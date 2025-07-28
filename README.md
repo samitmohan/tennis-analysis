@@ -8,4 +8,4 @@ When you run the YOLO model on the video, it barely detects the ball (which we n
 - ID Tracking is important, we need to detect which person is whom throughout the video/frames. Use yolo.track
 
 ## Output Video 
-![Screenshot](output_videos/output_photo.png)
+![Output](output_videos/output_photo.png)
