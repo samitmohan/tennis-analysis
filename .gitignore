@@ -19,7 +19,6 @@ models/*.pth
 
 # Input/Output Data
 input/
-output_videos/
 runs/
 tracker_stubs/
 
