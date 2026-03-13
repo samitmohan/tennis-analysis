@@ -1,8 +1,11 @@
 import numpy as np
 import cv2
+import pandas as pd
 
-def draw_player_stats(output_video_frames,player_stats):
 
+def draw_player_stats(
+    output_video_frames: list[np.ndarray], player_stats: pd.DataFrame
+) -> list[np.ndarray]:
     for index, row in player_stats.iterrows():
         player_1_shot_speed = row['player_1_last_shot_speed']
         player_2_shot_speed = row['player_2_last_shot_speed']

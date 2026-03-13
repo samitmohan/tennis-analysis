@@ -1,0 +1,47 @@
+[project]
+name = "tennis-analysis"
+version = "1.0.0"
+description = "Computer vision pipeline for tennis match analysis: player tracking, ball detection, speed computation, rally detection, and heatmap generation"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+
+dependencies = [
+    "ultralytics>=8.0",
+    "torch>=2.0",
+    "torchvision>=0.15",
+    "pandas>=2.0",
+    "numpy>=1.24",
+    "opencv-python>=4.8",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "ruff>=0.4",
+]
+
+[project.scripts]
+tennis-analyze = "cli:main"
+
+[tool.setuptools.packages.find]
+include = [
+    "trackers*",
+    "court_lines*",
+    "mini_court*",
+    "utils*",
+    "constants*",
+    "analytics*",
+    "tests*",
+]
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.ruff]
+line-length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

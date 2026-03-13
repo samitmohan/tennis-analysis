@@ -1,0 +1,30 @@
+models:
+  player_detector: "yolov8x"
+  ball_detector: "models/last.pt"
+  court_keypoint: "models/keypointsModel.pth"
+  ball_confidence: 0.15
+
+court:
+  single_line_width: 8.23
+  double_line_width: 10.97
+  half_court_line_height: 11.88
+  service_line_width: 6.4
+  double_alley_difference: 1.37
+  no_mans_land_height: 5.48
+
+players:
+  player_1_height_meters: 1.88
+  player_2_height_meters: 1.91
+
+shot_detection:
+  rolling_window: 5
+  minimum_change_frames: 25
+
+mini_court:
+  width: 250
+  height: 500
+  buffer: 50
+  padding: 20
+
+rally:
+  gap_threshold_seconds: 3.0

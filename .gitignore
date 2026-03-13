@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*.egg-info/
 
 # Virtual Environment
 .venv/
@@ -21,11 +22,12 @@ models/*.pth
 input/
 runs/
 tracker_stubs/
+output_videos/*.mp4
+output_videos/*.avi
 
 # Machine Learning Artifacts
 *.log
 *.out
-*.json
 
 # IDE and Editor Files
 .DS_Store
