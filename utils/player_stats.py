@@ -3,6 +3,10 @@ import cv2
 import pandas as pd
 
 
+def _zero_if_nan(value: float) -> float:
+    return 0.0 if pd.isna(value) else value
+
+
 def draw_player_stats(
     output_video_frames: list[np.ndarray], player_stats: pd.DataFrame
 ) -> list[np.ndarray]:
@@ -12,10 +16,12 @@ def draw_player_stats(
         player_1_speed = row['player_1_last_player_speed']
         player_2_speed = row['player_2_last_player_speed']
 
-        avg_player_1_shot_speed = row['player_1_average_shot_speed']
-        avg_player_2_shot_speed = row['player_2_average_shot_speed']
-        avg_player_1_speed = row['player_1_average_player_speed']
-        avg_player_2_speed = row['player_2_average_player_speed']
+        # Averages are 0/0 until a player's first shot, and NaN renders onto
+        # the video as the literal text "nan km/h".
+        avg_player_1_shot_speed = _zero_if_nan(row['player_1_average_shot_speed'])
+        avg_player_2_shot_speed = _zero_if_nan(row['player_2_average_shot_speed'])
+        avg_player_1_speed = _zero_if_nan(row['player_1_average_player_speed'])
+        avg_player_2_speed = _zero_if_nan(row['player_2_average_player_speed'])
 
         frame = output_video_frames[index]
         shapes = np.zeros_like(frame, np.uint8)

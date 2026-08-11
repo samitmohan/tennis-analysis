@@ -25,6 +25,11 @@ dev = [
 [project.scripts]
 tennis-analyze = "cli:main"
 
+# The console script points at cli:main, and pipeline/config are imported at
+# top level too. Without these the entry point installs but cannot import.
+[tool.setuptools]
+py-modules = ["cli", "config", "pipeline"]
+
 [tool.setuptools.packages.find]
 include = [
     "trackers*",

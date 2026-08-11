@@ -22,8 +22,14 @@ models/*.pth
 input/
 runs/
 tracker_stubs/
-output_videos/*.mp4
-output_videos/*.avi
+output_videos/
+output_video.mp4
+output.mov
+output_photo.png
+*.gif
+
+# Vendored training data - fetch it from Roboflow instead of committing it
+training/tennis-ball-detection-6/
 
 # Machine Learning Artifacts
 *.log

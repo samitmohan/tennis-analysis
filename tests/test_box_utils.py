@@ -62,15 +62,23 @@ class TestGetHeightOfBbox:
 class TestMeasureXYDistance:
     def test_basic(self):
         dx, dy = measure_xy_distance((10, 20), (30, 50))
-        assert dx == 20
-        assert dy == 30
+        assert dx == -20
+        assert dy == -30
 
     def test_same_point(self):
         dx, dy = measure_xy_distance((5, 5), (5, 5))
         assert dx == 0
         assert dy == 0
 
-    def test_always_positive(self):
+    def test_sign_is_preserved(self):
+        # Callers add this offset to a keypoint, so a point below and right of
+        # the keypoint must stay below and right of it.
         dx, dy = measure_xy_distance((30, 50), (10, 20))
         assert dx == 20
         assert dy == 30
+
+    def test_opposite_directions_do_not_collapse(self):
+        left = measure_xy_distance((10, 20), (30, 50))
+        right = measure_xy_distance((50, 80), (30, 50))
+        assert left != right
+        assert left == (-right[0], -right[1])

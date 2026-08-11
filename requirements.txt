@@ -3,4 +3,5 @@ torch
 torchvision
 pandas
 numpy
-opencv
+opencv-python
+pyyaml

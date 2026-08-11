@@ -38,4 +38,11 @@ def get_height_of_bbox(bbox: list[float]) -> float:
 def measure_xy_distance(
     p1: tuple[int, int], p2: tuple[int, int]
 ) -> tuple[float, float]:
-    return abs(p1[0] - p2[0]), abs(p1[1] - p2[1])
+    """Signed offset from p2 to p1, per axis.
+
+    The sign matters: the only caller adds this to a mini-court keypoint to
+    place an object relative to it. Taking abs() folded every position into the
+    +x/+y quadrant, so anything left of or above the keypoint was drawn on the
+    wrong side of it.
+    """
+    return p1[0] - p2[0], p1[1] - p2[1]
