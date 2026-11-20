@@ -1,4 +1,4 @@
-from .video_utils import read_vid, save_vid
+from .video_utils import iter_frames, probe, read_vid, save_vid
 from .box_utils import (
     get_center_of_bbox,
     get_closest_keypoint_index,

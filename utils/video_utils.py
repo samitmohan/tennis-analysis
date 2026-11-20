@@ -1,4 +1,5 @@
 import logging
+from collections.abc import Iterator
 
 import cv2
 import numpy as np
@@ -19,6 +20,29 @@ def read_vid(vid_path: str) -> tuple[list[np.ndarray], float]:
     cap.release()
     logger.info("Read %d frames at %.1f FPS from %s", len(frames), fps, vid_path)
     return frames, fps
+
+
+def iter_frames(vid_path: str) -> Iterator[np.ndarray]:
+    """Yield frames one at a time. Holding a whole 1080p video costs 6.2 MB per frame
+    (112 GB for a 10-minute match at 30 fps); this holds one."""
+    cap = cv2.VideoCapture(vid_path)
+    try:
+        while True:
+            ret, frame = cap.read()
+            if not ret:
+                return
+            yield frame
+    finally:
+        cap.release()
+
+
+def probe(vid_path: str) -> tuple[float, int]:
+    """(fps, frame count) from the container header."""
+    cap = cv2.VideoCapture(vid_path)
+    fps = cap.get(cv2.CAP_PROP_FPS) or 24.0
+    n = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+    cap.release()
+    return fps, n
 
 
 def save_vid(

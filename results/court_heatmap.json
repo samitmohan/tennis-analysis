@@ -1,0 +1,25 @@
+{
+  "model": "court_heatmap.pt (U-Net, 14 heatmaps at 640x360)",
+  "val_images": 2211,
+  "scored_images": 2151,
+  "keypoints": 30114,
+  "images_per_s": 3.3806473867097906,
+  "raw": {
+    "tp": 29851,
+    "fp": 260,
+    "fn": 3,
+    "tn": 0,
+    "precision": 0.9913652817907077,
+    "accuracy": 0.9912665205552235,
+    "median_px": 1.4401770887499958
+  },
+  "homography_ransac_5px": {
+    "tp": 29895,
+    "fp": 219,
+    "fn": 0,
+    "tn": 0,
+    "precision": 0.9927276349870492,
+    "accuracy": 0.9927276349870492,
+    "median_px": 1.3694701571597605
+  }
+}

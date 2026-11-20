@@ -1,0 +1,25 @@
+{
+  "model": "keypointsModel.pth (ResNet50 regression, 224x224)",
+  "val_images": 2211,
+  "scored_images": 2151,
+  "keypoints": 30114,
+  "images_per_s": 36.34086883467698,
+  "raw": {
+    "tp": 24946,
+    "fp": 5156,
+    "fn": 12,
+    "tn": 0,
+    "precision": 0.8287156999534915,
+    "accuracy": 0.8283854685528326,
+    "median_px": 3.8231049111604407
+  },
+  "homography_ransac_5px": {
+    "tp": 24957,
+    "fp": 5147,
+    "fn": 10,
+    "tn": 0,
+    "precision": 0.8290260430507573,
+    "accuracy": 0.828750747160789,
+    "median_px": 3.7834404369688244
+  }
+}

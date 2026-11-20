@@ -87,12 +87,13 @@ class BallTracker:
         return ball_detections
 
     def detect(self, frame) -> dict[int, list[float]]:
-        res = self.model.predict(frame, conf=self.confidence)[0]
-        ball_detect = {}
-        for box in res.boxes:
-            result = box.xyxy.tolist()[0]
-            ball_detect[1] = result
-        return ball_detect
+        res = self.model.predict(frame, conf=self.confidence, verbose=False)[0]
+        if len(res.boxes) == 0:
+            return {}
+        # NMS returns boxes sorted by confidence; the old loop kept the last, i.e. the
+        # least confident one. Keep the most confident.
+        best = max(res.boxes, key=lambda b: float(b.conf[0]))
+        return {1: best.xyxy.tolist()[0]}
 
     def draw_boxes(self, video_frames: list, ball_detections: list) -> list:
         output_vid_frames = []

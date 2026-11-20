@@ -1,0 +1,59 @@
+{
+  "gpu": "NVIDIA GeForce RTX 3090",
+  "runs": [
+    {
+      "label": "Old pipeline (whole video in RAM, YOLO ball), input_video.mp4",
+      "mode": "old",
+      "video": "input_video.mp4",
+      "frames": 214,
+      "wall_s": 20.79,
+      "maxrss_gb": 4.319812774658203,
+      "ok": true
+    },
+    {
+      "label": "This pipeline, tutorial YOLO ball, heatmap court, input_video.mp4",
+      "mode": "new_yolo",
+      "video": "input_video.mp4",
+      "frames": 214,
+      "wall_s": 19.93,
+      "maxrss_gb": 2.1386451721191406,
+      "ok": true
+    },
+    {
+      "label": "This pipeline, heatmap ball + heatmap court + homography, input_video.mp4",
+      "mode": "new_tracknet",
+      "video": "input_video.mp4",
+      "frames": 214,
+      "wall_s": 19.21,
+      "maxrss_gb": 2.1101531982421875,
+      "ok": true
+    },
+    {
+      "label": "Old pipeline (whole video in RAM, YOLO ball), input_x5.mp4",
+      "mode": "old",
+      "video": "input_x5.mp4",
+      "frames": 1070,
+      "wall_s": 52.9,
+      "maxrss_gb": 8.294178009033203,
+      "ok": false
+    },
+    {
+      "label": "This pipeline, tutorial YOLO ball, heatmap court, input_x5.mp4",
+      "mode": "new_yolo",
+      "video": "input_x5.mp4",
+      "frames": 1070,
+      "wall_s": 54.61,
+      "maxrss_gb": 2.1769943237304688,
+      "ok": false
+    },
+    {
+      "label": "This pipeline, heatmap ball + heatmap court + homography, input_x5.mp4",
+      "mode": "new_tracknet",
+      "video": "input_x5.mp4",
+      "frames": 1070,
+      "wall_s": 78.37,
+      "maxrss_gb": 2.1552162170410156,
+      "ok": true
+    }
+  ]
+}

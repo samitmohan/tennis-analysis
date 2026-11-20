@@ -24,7 +24,14 @@ def export_stats_json(
     path = Path(output_path)
     path.parent.mkdir(parents=True, exist_ok=True)
     with open(path, "w") as f:
-        json.dump(data, f, indent=2)
+        json.dump(data, f, indent=2, default=_numpy_scalar)
+
+
+def _numpy_scalar(o: Any) -> Any:
+    """Speeds come out of numpy as float32, which json cannot write; unwrap scalars only."""
+    if hasattr(o, "item") and getattr(o, "ndim", None) == 0:
+        return o.item()
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
 
 
 def export_stats_csv(
@@ -38,7 +45,8 @@ def export_stats_csv(
     path = Path(output_path)
     path.parent.mkdir(parents=True, exist_ok=True)
 
-    fieldnames = list(shot_events[0].keys())
+    # Only shots with a bounce carry the bounce fields, so take every key, in first-seen order.
+    fieldnames = list(dict.fromkeys(k for ev in shot_events for k in ev))
     with open(path, "w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
@@ -102,6 +110,6 @@ def build_shot_events(
             "frame": frame,
             "timestamp_seconds": round(frame / fps, 2),
             "player": shot_players.get(frame),
-            "ball_speed_kmh": round(shot_speeds.get(frame, 0.0), 1),
+            "ball_speed_kmh": round(shot_speeds[frame], 1) if frame in shot_speeds else None,
         })
     return events

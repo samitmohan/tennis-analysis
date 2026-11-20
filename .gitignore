@@ -49,3 +49,4 @@ training/tennis-ball-detection-6/
 *.tmp
 *.bak
 *.backup
+input_videos/input_x5.mp4

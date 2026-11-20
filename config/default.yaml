@@ -3,6 +3,11 @@ models:
   ball_detector: "models/last.pt"
   court_keypoint: "models/keypointsModel.pth"
   ball_confidence: 0.15
+  ball_tracker: "tracknet"  # or "yolo" for the tutorial's single-frame detector
+  tracknet: "models/tracknet.pt"
+  events: "models/events.pt"
+  court_model: "heatmap"  # or "resnet" for the tutorial's keypoint regressor
+  court_heatmap: "models/court_heatmap.pt"
 
 court:
   single_line_width: 8.23

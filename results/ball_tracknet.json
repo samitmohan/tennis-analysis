@@ -1,0 +1,28 @@
+{
+  "detector": "tracknet /home/cv-gpu-2/samit_workspace/tennis-runs/tracknet_v1/best.pt thr=0.9",
+  "games": [
+    "game9",
+    "game10"
+  ],
+  "clips": 21,
+  "frames": 3717,
+  "model_fps": 91.83069236961275,
+  "ball": {
+    "tp": 3095,
+    "fp": 534,
+    "fn": 48,
+    "tn": 40,
+    "precision": 0.8528520253513364,
+    "recall": 0.9847279669105949,
+    "f1": 0.9140578854105138,
+    "median_px": 2.0542991196654357
+  },
+  "hits_by_pipeline_shot_detector": {
+    "tp": 50,
+    "fp": 37,
+    "fn": 38,
+    "precision": 0.5747126436781609,
+    "recall": 0.5681818181818182,
+    "f1": 0.5714285714285714
+  }
+}

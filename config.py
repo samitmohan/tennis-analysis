@@ -10,6 +10,13 @@ class ModelConfig:
     ball_detector: str = "models/last.pt"
     court_keypoint: str = "models/keypointsModel.pth"
     ball_confidence: float = 0.15
+    # "tracknet" = the 3-frame heatmap tracker trained here; "yolo" = the tutorial's detector
+    ball_tracker: str = "tracknet"
+    tracknet: str = "models/tracknet.pt"
+    events: str = "models/events.pt"
+    # "heatmap" = the 14-heatmap U-Net trained here; "resnet" = the tutorial's regressor
+    court_model: str = "heatmap"
+    court_heatmap: str = "models/court_heatmap.pt"
 
 
 @dataclass

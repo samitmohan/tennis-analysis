@@ -1,0 +1,48 @@
+{
+  "preds": "/Users/samit/personal/tennis-data/preds_thr090.json",
+  "window_frames": 7,
+  "own_y": false,
+  "mirror": true,
+  "cv": true,
+  "oof_games_1_8": {
+    "hits": {
+      "tp": 360,
+      "fp": 73,
+      "fn": 40,
+      "precision": 0.8314087759815243,
+      "recall": 0.9,
+      "f1": 0.8643457382953181
+    },
+    "bounces": {
+      "tp": 404,
+      "fp": 65,
+      "fn": 13,
+      "precision": 0.8614072494669509,
+      "recall": 0.9688249400479616,
+      "f1": 0.91196388261851
+    }
+  },
+  "thresholds": {
+    "hit": 0.75,
+    "hit_nms": 10,
+    "bounce": 0.65
+  },
+  "test": {
+    "hits": {
+      "tp": 57,
+      "fp": 34,
+      "fn": 31,
+      "precision": 0.6263736263736264,
+      "recall": 0.6477272727272727,
+      "f1": 0.6368715083798883
+    },
+    "bounces": {
+      "tp": 81,
+      "fp": 55,
+      "fn": 17,
+      "precision": 0.5955882352941176,
+      "recall": 0.826530612244898,
+      "f1": 0.6923076923076923
+    }
+  }
+}

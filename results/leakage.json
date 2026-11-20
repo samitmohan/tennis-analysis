@@ -1,0 +1,46 @@
+{
+  "training_images": 578,
+  "max_bits": 6,
+  "games": {
+    "game1": {
+      "frames": 1978,
+      "training_images_matching": 0
+    },
+    "game2": {
+      "frames": 2222,
+      "training_images_matching": 0
+    },
+    "game3": {
+      "frames": 1888,
+      "training_images_matching": 0
+    },
+    "game4": {
+      "frames": 2238,
+      "training_images_matching": 0
+    },
+    "game5": {
+      "frames": 1964,
+      "training_images_matching": 0
+    },
+    "game6": {
+      "frames": 1989,
+      "training_images_matching": 0
+    },
+    "game7": {
+      "frames": 1881,
+      "training_images_matching": 0
+    },
+    "game8": {
+      "frames": 1958,
+      "training_images_matching": 0
+    },
+    "game9": {
+      "frames": 1573,
+      "training_images_matching": 0
+    },
+    "game10": {
+      "frames": 2144,
+      "training_images_matching": 0
+    }
+  }
+}
