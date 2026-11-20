@@ -104,14 +104,20 @@ uv sync --extra dev
 
 ### Model weights
 
-Place these in `models/`:
+The trained weights are on the [weights-v1 release](https://github.com/samitmohan/tennis-analysis/releases/tag/weights-v1):
+
+```bash
+for f in tracknet.pt court_heatmap.pt events.pt; do
+  curl -L --create-dirs -o models/$f https://github.com/samitmohan/tennis-analysis/releases/download/weights-v1/$f
+done
+```
 
 | Model | File | Purpose |
 |-------|------|---------|
 | YOLOv8x | downloaded automatically | Player detection |
-| Ball tracker | `models/tracknet.pt` | 3-frame heatmap tracker, `ball_tracking.train` |
-| Event model | `models/events.pt` | Hits and bounces, `ball_tracking.events` |
-| Court keypoints | `models/court_heatmap.pt` | 14-heatmap U-Net, `court_lines.heatmap` |
+| Ball tracker | [`models/tracknet.pt`](https://github.com/samitmohan/tennis-analysis/releases/download/weights-v1/tracknet.pt) | 3-frame heatmap tracker, `ball_tracking.train` |
+| Event model | [`models/events.pt`](https://github.com/samitmohan/tennis-analysis/releases/download/weights-v1/events.pt) | Hits and bounces, `ball_tracking.events` |
+| Court keypoints | [`models/court_heatmap.pt`](https://github.com/samitmohan/tennis-analysis/releases/download/weights-v1/court_heatmap.pt) | 14-heatmap U-Net, `court_lines.heatmap` |
 | Tutorial court model | `models/keypointsModel.pth` | Only with `court_model: "resnet"` |
 | Tutorial ball detector | `models/last.pt` | Only with `ball_tracker: "yolo"` |
 
