@@ -6,7 +6,13 @@ This project started from [abdullahtarek/tennis_analysis](https://github.com/abd
 
 ## Demo
 
-![Output](output_videos/output.gif)
+The full pipeline on the tutorial's clip: court keypoints, player boxes, the ball, shot speeds and the mini court.
+
+![Pipeline output](output_videos/output.gif)
+
+The ball on a match neither model trained on (TrackNet game 9, clip 2). The white ring is the labelled ball. Left: the tutorial's single-frame YOLO detector. Right: this repo's 3-frame tracker. Each panel header carries that clip's recall and precision.
+
+![Tutorial YOLO against the 3-frame tracker](output_videos/ball_compare.gif)
 
 <!-- results:start -->
 ## Results
@@ -69,6 +75,7 @@ python -m ball_tracking.prep --data <tracknet>/Dataset --out <tracknet_512>
 python -m ball_tracking.train --data <tracknet_512> --shrunk --out runs/tracknet --epochs 25
 python -m ball_tracking.predict --data <tracknet>/Dataset --ckpt runs/tracknet/best.pt --thr 0.9 --out preds.json
 python -m evaluation.ball --data <tracknet>/Dataset --preds preds.json --out results/ball_tracknet.json
+python -m evaluation.demo_ball --data <tracknet>/Dataset --preds preds.json --clip game9/Clip2 --out output_videos/ball_compare.gif
 
 # Tutorial baseline on the same frames, and the leakage check
 python -m evaluation.ball --data <tracknet>/Dataset --weights models/last.pt --out results/baseline_ball.json
@@ -169,7 +176,7 @@ tennis-analysis/
   cli.py, pipeline.py, config.py
   ball_tracking/       # heatmap tracker: model, data, prep, train, predict, events
   court_lines/         # keypoint model, homography, heatmap keypoint trainer, data prep
-  evaluation/          # metrics, TrackNet loader, ball / court / leakage benchmarks, report
+  evaluation/          # metrics, TrackNet loader, ball / court / leakage benchmarks, report, demo GIF
   trackers/            # player tracker, YOLO ball tracker, TrackNet ball tracker
   analytics/           # shots (speed, line calls), rallies, export, heatmaps
   mini_court/, utils/, constants/
